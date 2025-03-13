@@ -12,10 +12,9 @@ This repository hosts a collection of web-based games deployed on GitHub Pages.
 
 - HTML, CSS, and JavaScript for the frontend.
 - Vue.js for the game hub page interactivity.
-- GitHub Actions for deployment to GitHub Pages.
 
 ## Deployment
 
-The repository is deployed via GitHub Pages using the workflow defined in [`.github/workflows/pages.yml`](.github/workflows/pages.yml).
+The repository is deployed via GitHub Pages using the native GitHub workflow (`main` branch, `/docs` folder).
 
 Enjoy exploring the games!
