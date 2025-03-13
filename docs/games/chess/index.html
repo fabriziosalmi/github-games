@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Game</title>
+    <link rel="stylesheet" href="../../shared.css">
+</head>
+<body>
+    <header>
+        <h1>Chess Game</h1>
+        <a href="../../index.html">⬅ Back to Game Hub</a>
+    </header>
+    <main>
+        <canvas id="gameCanvas"></canvas>
+        <div id="gameStatus" class="game-status">White's turn</div>
+        <div class="game-instructions">
+            <p>Click on a piece to select it, then click on a valid square to move!</p>
+            <p>White moves first. Capture all pieces and checkmate the opponent's king to win!</p>
+            <p>A piece is highlighted in green when selected. Invalid moves will be ignored.</p>
+        </div>
+    </main>
+    <script src="chess.js"></script>
+</body>
+</html>

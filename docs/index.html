@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Hub</title>
+    <link rel="stylesheet" href="shared.css">
+    <!-- Added Vue.js CDN -->
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>{{ headerTitle }}</h1>
+        </header>
+        <main>
+            <h2>{{ gamesTitle }}</h2>
+            <div class="game-grid">
+                <div v-for="game in games" :key="game.id" class="game-card">
+                    <a :href="game.url">
+                        <h3>{{ game.title }}</h3>
+                        <p>{{ game.description }}</p>
+                    </a>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>© 2025 Game Hub | Hosted on GitHub Pages</p>
+        </footer>
+    </div>
+    <!-- Vue initialization -->
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    headerTitle: "Welcome to Game Hub",
+                    gamesTitle: "Available Games",
+                    games: [
+                        {
+                            id: 1,
+                            title: "Snake",
+                            description: "Classic snake game - eat food and grow longer!",
+                            url: "games/snake/index.html"
+                        },
+                        {
+                            id: 2,
+                            title: "Bouncing Ball",
+                            description: "Watch and control the bouncing ball physics!",
+                            url: "games/bouncingball/index.html"
+                        },
+                        {
+                            id: 3,
+                            title: "Chess",
+                            description: "Classic chess game - challenge yourself in this strategic board game!",
+                            url: "games/chess/index.html"
+                        }
+                    ]
+                }
+            }
+        });
+        app.mount('#app');
+    </script>
+</body>
+</html>

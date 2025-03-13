@@ -1,0 +1,225 @@
+/* Root Variables */
+:root {
+    --primary-bg: #ffffff;
+    --primary-text: #333333;
+    --accent: #0077cc;
+    --header-bg: #f8f8f8;
+    --header-text: #333333;
+    --footer-bg: #f8f8f8;
+    --footer-text: #333333;
+    --game-bg: #000000; /* Consider a slightly lighter shade for better contrast with the border. */
+    --game-border: #cccccc;
+    --link-color: #0077cc;
+    --link-hover: #005599;
+    --card-bg: #ffffff;
+    --card-shadow: rgba(0, 0, 0, 0.1);
+    --card-hover-shadow: rgba(0, 0, 0, 0.2);
+
+    /* Semantic Colors (for accessibility and clarity) */
+    --error-color: #ff4d4f; /* Red for error messages */
+    --success-color: #52c41a; /* Green for success messages */
+    --warning-color: #faad14; /* Yellow for warnings */
+    --info-color: #1890ff;    /* Blue for informational messages */
+
+    /* Spacing and Sizes */
+    --space-xs: 0.25rem;  /* Extra small spacing */
+    --space-sm: 0.5rem;   /* Small spacing */
+    --space-md: 1rem;     /* Medium spacing */
+    --space-lg: 1.5rem;   /* Large spacing */
+    --space-xl: 2rem;     /* Extra large spacing */
+
+    --border-radius: 8px; /* Consistent border radius */
+}
+
+/* Dark Mode Override */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-bg: #181818;
+        --primary-text: #e0e0e0;
+        --accent: #66aaff;
+        --header-bg: #202020;
+        --header-text: #e0e0e0;
+        --footer-bg: #202020;
+        --footer-text: #e0e0e0;
+        --game-bg: #000000; /* Keep black, it looks good in dark mode */
+        --game-border: #444444;
+        --link-color: #66aaff;
+        --link-hover: #99ccff;
+        --card-bg: #202020;
+        --card-shadow: rgba(0, 0, 0, 0.3);
+        --card-hover-shadow: rgba(0, 0, 0, 0.4);
+    }
+}
+
+/* Base Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6; /* Improves readability */
+}
+
+/* Header Styles */
+header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: var(--space-md); /* Using spacing variable */
+    text-align: center;
+    border-bottom: 1px solid var(--game-border);
+    width: 100%;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+header h1 {
+    margin: 0 0 var(--space-sm) 0; /* Using spacing variable */
+}
+
+header a {
+    color: var(--link-color);
+    text-decoration: none;
+    display: inline-block;
+    padding: var(--space-sm); /* Using spacing variable */
+    transition: color 0.2s;
+}
+
+header a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+}
+
+/* Main Content Styles */
+main {
+    flex: 1;
+    padding: var(--space-md); /* Using spacing variable */
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Canvas Styles */
+canvas {
+    background: var(--game-bg);
+    border: 2px solid var(--game-border);
+    display: block;
+    margin: var(--space-md) auto; /* Using spacing variable */
+    max-width: min(800px, 95vw);
+    width: 100%;
+    aspect-ratio: 1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Add transition for smoother resizing */
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+/* Footer Styles */
+footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    text-align: center;
+    padding: var(--space-md); /* Using spacing variable */
+    border-top: 1px solid var(--game-border);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Game Controls Styles */
+.game-controls {
+    margin: var(--space-md) 0; /* Using spacing variable */
+    text-align: center;
+}
+
+/* Game Status Styles */
+.game-status {
+    background-color: var(--header-bg);
+    border-radius: var(--border-radius); /* Using border radius variable */
+    padding: var(--space-sm); /* Using spacing variable */
+    margin: var(--space-sm) auto; /* Using spacing variable */
+    max-width: 600px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+/* Game Instructions Styles */
+.game-instructions {
+    background-color: var(--header-bg);
+    border-radius: var(--border-radius); /* Using border radius variable */
+    padding: var(--space-md); /* Using spacing variable */
+    margin: var(--space-md) auto; /* Using spacing variable */
+    max-width: 600px;
+    text-align: center;
+}
+
+/* Game Grid Styles */
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-xl); /* Using spacing variable */
+    padding: var(--space-md); /* Using spacing variable */
+}
+
+/* Game Card Styles */
+.game-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px var(--card-shadow);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px var(--card-hover-shadow);
+}
+
+.game-card a {
+    display: block;
+    padding: var(--space-lg); /* Using spacing variable */
+    text-decoration: none;
+    color: var(--primary-text);
+}
+
+.game-card h3 {
+    margin: 0 0 var(--space-sm) 0; /* Using spacing variable */
+    color: var(--accent);
+    font-size: 1.5rem;
+}
+
+.game-card p {
+    margin: 0;
+    color: var(--primary-text);
+    opacity: 0.8;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    header, main, footer {
+        padding: var(--space-sm); /* Using spacing variable */
+    }
+
+    canvas {
+        margin: var(--space-sm) auto; /* Using spacing variable */
+        aspect-ratio: 1;
+    }
+
+    .game-instructions {
+        margin: var(--space-sm) auto; /* Using spacing variable */
+        padding: var(--space-sm); /* Using spacing variable */
+        font-size: 0.9rem;
+    }
+
+    .game-grid {
+        gap: var(--space-md); /* Using spacing variable */
+        padding: var(--space-sm); /* Using spacing variable */
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+}
