@@ -2,6 +2,8 @@
 
 This repository hosts a collection of web-based games deployed on GitHub Pages.
 
+## [🎮 PLAY 🎮](https://fabriziosalmi.github.io/github-games/)
+
 ## Available Games
 
 - **Snake Game**: Control the snake using arrow keys, collect food, and avoid collisions.
