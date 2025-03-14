@@ -15,7 +15,6 @@ class SpaceInvaders {
     this.lastEnemyMove = Date.now();
     this.enemyMoveInterval = 1000;
     this.enemyDirection = 1;
-    this.enemyMoveDown = false;
     this.enemyBulletInterval = 2000;
     this.lastEnemyBullet = Date.now();
     this.gameLoop();
@@ -44,6 +43,10 @@ class SpaceInvaders {
     this.updateBullets();
     this.updateEnemies();
     this.updateEnemyBullets();
+    if (Date.now() - this.lastEnemyBullet > this.enemyBulletInterval) {
+      this.fireEnemyBullet();
+      this.lastEnemyBullet = Date.now();
+    }
     this.checkCollisions();
   }
 
@@ -100,5 +103,11 @@ class SpaceInvaders {
 
   drawGameOver() {
     // ...existing game over rendering code...
+  }
+
+  fireEnemyBullet() {
+    if (this.enemies.length === 0) return;
+    const enemy = this.enemies[Math.floor(Math.random() * this.enemies.length)];
+    this.enemyBullets.push(new Bullet(enemy.x + enemy.width / 2, enemy.y + enemy.height, 0, 4));
   }
 }
