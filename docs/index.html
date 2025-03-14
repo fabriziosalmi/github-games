@@ -16,7 +16,7 @@
          <header>
              <!-- Google Play logo and search bar placeholder -->
                 <div class="search-bar">
-                    <input type="search" placeholder="Search games" aria-label="Search Games">
+                    <input type="search" placeholder="Search games" aria-label="Search Games" v-model="searchQuery">
                     <button aria-label="Search"><i class="material-icons-extended">search</i></button>
                 </div>
 
@@ -25,7 +25,7 @@
 
             <h2>{{ gamesTitle }}</h2>
             <div class="game-grid">
-                <div v-for="game in games" :key="game.id" class="game-card">
+                <div v-for="game in filteredGames" :key="game.id" class="game-card">
                     <a :href="game.url">
                        <img :src="game.icon" :alt="'Icon for ' + game.title" class="game-icon">
                         <h3>{{ game.title }}</h3>
@@ -45,7 +45,18 @@
     data() {
         return {
             headerTitle: "", //Removed Title so that only the logo appears
-            games: [] // Empty array to be populated from games.json
+            games: [], // Empty array to be populated from games.json
+            searchQuery: ""
+        }
+    },
+    computed: {
+        filteredGames() {
+            if (!this.searchQuery) return this.games;
+            const query = this.searchQuery.toLowerCase();
+            return this.games.filter(game => 
+                game.title.toLowerCase().includes(query) ||
+                game.description.toLowerCase().includes(query)
+            );
         }
     },
     mounted() {

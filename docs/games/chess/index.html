@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chess Game</title>
     <link rel="stylesheet" href="../../shared.css">
+    
 </head>
 <body>
     <header>
@@ -12,48 +13,49 @@
         <a href="../../index.html">⬅ Back to Game Hub</a>
     </header>
     <main>
-        <div class="game-layout">
-            <div class="game-sidebar" id="sidebar">
-                <button class="collapse-btn" onclick="toggleSidebar()">☰</button>
-                <div class="instructions" id="gameInstructions">
-                    <!-- Instructions will be loaded here dynamically -->
-                </div>
-            </div>
-            <div class="game-content">
-                <canvas id="gameCanvas"></canvas>
-                <div id="gameStatus" class="game-status">White's turn</div>
-            </div>
+      <div class="game-layout">
+        <div class="game-sidebar" id="sidebar">
+          <button class="collapse-btn" onclick="toggleSidebar()">☰</button>
+          <div class="instructions" id="gameInstructions">
+            <!-- Instructions will be loaded here dynamically -->
+          </div>
         </div>
+        <div class="game-content">
+          <canvas id="gameCanvas"></canvas>
+          <div id="gameStatus" class="game-status">White's turn</div>
+        </div>
+      </div>
     </main>
     <footer>
-		<p>Hosted on GitHub Pages - <a href="https://github.com/fabriziosalmi/github-games">Source code</a> - Icons by <a href="https://www.flaticon.com">FlatIcons</a></p>
-	</footer>
+      <p>Hosted on GitHub Pages - <a href="https://github.com/fabriziosalmi/github-games">Source code</a> - Icons by <a href="https://www.flaticon.com">FlatIcons</a></p>
+    </footer>
     <script src="chess.js"></script>
     <script>
-        function toggleSidebar(){
-            const sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('collapsed');
-        }
+      function toggleSidebar(){
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('collapsed');
+      }
 
-        async function loadInstructions() {
-            try {
-                const response = await fetch('../../games.json');
-                const data = await response.json();
-                const gameName = document.location.pathname.split('/').slice(-2)[0];
-                const game = data.games.find(g => g.name === gameName);
-                
-                if (game && game.instructions) {
-                    const instructionsHtml = game.instructions
-                        .map(instruction => `<p>${instruction}</p>`)
-                        .join('');
-                    document.getElementById('gameInstructions').innerHTML = instructionsHtml;
-                }
-            } catch (error) {
-                console.error('Error loading instructions:', error);
-            }
+      async function loadInstructions() {
+        try {
+          const response = await fetch('../../games.json');
+          const data = await response.json();
+          const gameName = document.location.pathname.split('/').slice(-2)[0];
+          const game = data.games.find(g => g.name === gameName);
+          
+          if (game && game.instructions) {
+            const instructionsHtml = game.instructions
+              .map(instruction => `<p>${instruction}</p>`)
+              .join('');
+            document.getElementById('gameInstructions').innerHTML = instructionsHtml;
+          }
+        } catch (error) {
+          console.error('Error loading instructions:', error);
         }
+      }
 
-        document.addEventListener('DOMContentLoaded', loadInstructions);
+      document.addEventListener('DOMContentLoaded', loadInstructions);
     </script>
+    
 </body>
 </html>

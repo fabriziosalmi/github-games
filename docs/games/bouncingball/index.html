@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bouncing Ball Game</title>
     <link rel="stylesheet" href="../../shared.css">
+    
 </head>
 <body>
     <header>
@@ -21,6 +22,7 @@
         </div>
         <div class="game-content">
           <canvas id="gameCanvas"></canvas>
+          
         </div>
       </div>
     </main>
@@ -28,31 +30,7 @@
       <p>Hosted on GitHub Pages - <a href="https://github.com/fabriziosalmi/github-games">Source code</a> - Icons by <a href="https://www.flaticon.com">FlatIcons</a></p>
     </footer>
     <script src="bouncingball.js"></script>
-    <script>
-      function toggleSidebar(){
-        const sidebar = document.getElementById('sidebar');
-        sidebar.classList.toggle('collapsed');
-      }
-
-      async function loadInstructions() {
-        try {
-          const response = await fetch('../../games.json');
-          const data = await response.json();
-          const gameName = document.location.pathname.split('/').slice(-2)[0];
-          const game = data.games.find(g => g.name === gameName);
-          
-          if (game && game.instructions) {
-            const instructionsHtml = game.instructions
-              .map(instruction => `<p>${instruction}</p>`)
-              .join('');
-            document.getElementById('gameInstructions').innerHTML = instructionsHtml;
-          }
-        } catch (error) {
-          console.error('Error loading instructions:', error);
-        }
-      }
-
-      document.addEventListener('DOMContentLoaded', loadInstructions);
-    </script>
+    <!-- Use the consolidated shared functions -->
+    <script src="../../scripts/shared-game.js"></script>
 </body>
 </html>
