@@ -440,3 +440,11 @@ footer a {
   width: 128px;
   height: 128px;
 }
+
+.game-card {
+  background: #171717;
+  border-radius: 70px;
+  padding: 0.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 5px dotted #fff;
+}
