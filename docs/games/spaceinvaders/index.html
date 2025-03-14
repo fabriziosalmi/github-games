@@ -19,9 +19,8 @@
     <div class="game-layout">
       <div class="game-sidebar" id="sidebar">
         <button class="collapse-btn" onclick="toggleSidebar()">☰</button>
-        <div class="instructions">
-          <p>Use arrow keys to move left and right.</p>
-          <p>Press spacebar to shoot.</p>
+        <div class="instructions" id="gameInstructions">
+          <!-- Instructions will be loaded here dynamically -->
         </div>
       </div>
       <div class="game-content">
@@ -38,6 +37,26 @@
 	    const sidebar = document.getElementById('sidebar');
 	    sidebar.classList.toggle('collapsed');
 	  }
+
+    async function loadInstructions() {
+      try {
+        const response = await fetch('../../games.json');
+        const data = await response.json();
+        const gameName = document.location.pathname.split('/').slice(-2)[0];
+        const game = data.games.find(g => g.name === gameName);
+        
+        if (game && game.instructions) {
+          const instructionsHtml = game.instructions
+            .map(instruction => `<p>${instruction}</p>`)
+            .join('');
+          document.getElementById('gameInstructions').innerHTML = instructionsHtml;
+        }
+      } catch (error) {
+        console.error('Error loading instructions:', error);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadInstructions);
 	</script>
 </body>
 </html>

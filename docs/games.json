@@ -7,34 +7,52 @@
       "folder": "snake",
       "icon": "snake.png",
       "game": "snake.js",
-      "url": "https://fabriziosalmi.github.io/github-games/games/snake/index.html"
+      "url": "https://fabriziosalmi.github.io/github-games/games/snake/index.html",
+      "instructions": [
+        "Use arrow keys to control the snake",
+        "Collect food to grow longer",
+        "Avoid collisions with walls or yourself!"
+      ]
     },
     {
       "id": "Bouncing Ball",
       "name": "bouncingball",
       "description": "A fun board game",
-        "folder": "bouncingball",
-        "icon": "bouncingball.png",
-        "game": "bouncingball.js",
-        "url": "https://fabriziosalmi.github.io/github-games/games/bouncingball/index.html"
+      "folder": "bouncingball",
+      "icon": "bouncingball.png",
+      "game": "bouncingball.js",
+      "url": "https://fabriziosalmi.github.io/github-games/games/bouncingball/index.html",
+      "instructions": [
+        "Watch the ball bounce around!",
+        "The ball uses realistic physics with gravity and damping"
+      ]
     },
-        {
-        "id": "Chess",
-        "name": "chess",
-        "description": "A classic strategy game",
-        "folder": "chess",
-        "icon": "chess.png",
-        "game": "chess.js",
-        "url": "https://fabriziosalmi.github.io/github-games/games/chess/index.html"
-        },
-        {
-        "id": "Space Invaders",
-        "name": "spaceinvaders",
-        "description": "A fun board game",
-        "folder": "spaceinvaders",
-        "icon": "spaceinvaders.png",
-        "game": "spaceinvaders.js",
-        "url": "https://fabriziosalmi.github.io/github-games/games/spaceinvaders/index.html"
-        }
+    {
+      "id": "Chess",
+      "name": "chess",
+      "description": "A classic strategy game",
+      "folder": "chess",
+      "icon": "chess.png",
+      "game": "chess.js",
+      "url": "https://fabriziosalmi.github.io/github-games/games/chess/index.html",
+      "instructions": [
+        "Click on a piece to select it, then click on a valid square to move",
+        "White moves first. Avoid putting yourself in check",
+        "Capture pieces and checkmate the opponent's king to win!"
+      ]
+    },
+    {
+      "id": "Space Invaders",
+      "name": "spaceinvaders",
+      "description": "A fun board game",
+      "folder": "spaceinvaders",
+      "icon": "spaceinvaders.png",
+      "game": "spaceinvaders.js",
+      "url": "https://fabriziosalmi.github.io/github-games/games/spaceinvaders/index.html",
+      "instructions": [
+        "Use arrow keys to move left and right",
+        "Press spacebar to shoot"
+      ]
+    }
   ]
 }
