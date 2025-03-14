@@ -94,20 +94,65 @@ class SpaceInvaders {
   }
 
   checkCollisions() {
-    // ...existing collision detection code...
+    // Completed collision detection logic
+    // Check player bullets hitting enemies
+    for (let i = this.bullets.length - 1; i >= 0; i--) {
+      const bullet = this.bullets[i];
+      for (let j = this.enemies.length - 1; j >= 0; j--) {
+        const enemy = this.enemies[j];
+        if (this.collides(bullet, enemy)) {
+          this.enemies.splice(j, 1);
+          this.bullets.splice(i, 1);
+          this.score += 10;
+          break;
+        }
+      }
+    }
+    // Check enemy bullets hitting player
+    for (let i = this.enemyBullets.length - 1; i >= 0; i--) {
+      const bullet = this.enemyBullets[i];
+      if (this.collides(bullet, this.player)) {
+        this.gameOver = true;
+        break;
+      }
+    }
   }
 
   draw() {
-    // ...existing drawing code...
+    // Completed drawing logic
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    // Draw player, enemies, player bullets and enemy bullets
+    this.player.draw(this.ctx);
+    this.enemies.forEach(enemy => enemy.draw(this.ctx));
+    this.bullets.forEach(bullet => bullet.draw(this.ctx));
+    this.enemyBullets.forEach(bullet => bullet.draw(this.ctx));
+    // Draw score
+    this.ctx.fillStyle = 'white';
+    this.ctx.font = '16px Arial';
+    this.ctx.fillText('Score: ' + this.score, 8, 20);
   }
 
   drawGameOver() {
-    // ...existing game over rendering code...
+    // Completed game over rendering logic
+    this.ctx.fillStyle = 'black';
+    this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    this.ctx.fillStyle = 'red';
+    this.ctx.font = '30px Arial';
+    this.ctx.textAlign = 'center';
+    this.ctx.fillText('Game Over', this.canvas.width / 2, this.canvas.height / 2);
   }
 
   fireEnemyBullet() {
     if (this.enemies.length === 0) return;
     const enemy = this.enemies[Math.floor(Math.random() * this.enemies.length)];
     this.enemyBullets.push(new Bullet(enemy.x + enemy.width / 2, enemy.y + enemy.height, 0, 4));
+  }
+  
+  // Utility method for collision detection based on bounding boxes
+  collides(a, b) {
+    return a.x < b.x + b.width &&
+           a.x + a.width > b.x &&
+           a.y < b.y + b.height &&
+           a.y + a.height > b.y;
   }
 }
