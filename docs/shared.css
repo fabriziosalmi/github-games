@@ -435,3 +435,8 @@ footer a {
   color: white;
   font-weight: bold;
 }
+
+.game-icon {
+  width: 128px;
+  height: 128px;
+}
