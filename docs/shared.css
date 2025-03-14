@@ -366,3 +366,31 @@ footer {
 .search-bar {
   border: 1px solid #4d4d4d;
 }
+
+header {
+  background-color: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+  .search-bar {
+    background-color: #131313;
+  }
+}
+
+.search-bar {
+  color: #8a8a8a;
+  max-width: 30%;
+  margin: 0px 3rem;
+}
+
+.search-bar input {
+  font-size: initial;
+}
+
+.logo {
+  height: 48px;
+  margin-right: 1rem;
+  max-width: 100%;
+  margin: 0px 1rem;
+  margin-top: 1px;
+}
