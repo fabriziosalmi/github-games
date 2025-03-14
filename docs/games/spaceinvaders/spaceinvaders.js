@@ -56,12 +56,49 @@ class SpaceInvaders {
     }
   }
 
-  updateEnemyBullets() {
-        for (let i = this.enemyBullets.length - 1; i >= 0; i--) {
-          this.enemyBullets[i].update();
-          if (this.enemyBullets[i].y > this.canvas.height) {
-            this.enemyBullets.splice(i, 1);
-          }
+  updateEnemies() {
+    const now = Date.now();
+    if (now - this.lastEnemyMove > this.enemyMoveInterval) {
+      let shouldReverse = false;
+      for (let enemy of this.enemies) {
+        if ((enemy.x + enemy.width >= this.canvas.width && this.enemyDirection > 0) ||
+            (enemy.x <= 0 && this.enemyDirection < 0)) {
+          shouldReverse = true;
+          break;
         }
       }
+      if (shouldReverse) {
+        this.enemyDirection *= -1;
+        for (let enemy of this.enemies) {
+          enemy.y += 10;
+        }
+      } else {
+        for (let enemy of this.enemies) {
+          enemy.x += 5 * this.enemyDirection;
+        }
+      }
+      this.lastEnemyMove = now;
     }
+  }
+
+  updateEnemyBullets() {
+    for (let i = this.enemyBullets.length - 1; i >= 0; i--) {
+      this.enemyBullets[i].update();
+      if (this.enemyBullets[i].y > this.canvas.height) {
+        this.enemyBullets.splice(i, 1);
+      }
+    }
+  }
+
+  checkCollisions() {
+    // ...existing collision detection code...
+  }
+
+  draw() {
+    // ...existing drawing code...
+  }
+
+  drawGameOver() {
+    // ...existing game over rendering code...
+  }
+}
