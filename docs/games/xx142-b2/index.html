@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="../../shared.css">
+    
+</head>
+<body>
+    <header>
+        <h1>Snake Game</h1>
+        <a href="../../index.html">⬅ Back to Game Hub</a>
+    </header>
+    <main>
+      <div class="game-layout">
+        <div class="game-sidebar" id="sidebar">
+          <button class="collapse-btn" onclick="toggleSidebar()">☰</button>
+          <div class="instructions" id="gameInstructions">
+            <!-- Instructions will be loaded here dynamically -->
+          </div>
+        </div>
+        <div class="game-content">
+          <canvas id="gameCanvas"></canvas>
+          
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>Hosted on GitHub Pages - <a href="https://github.com/fabriziosalmi/github-games">Source code</a> - Icons by <a href="https://www.flaticon.com">FlatIcons</a></p>
+    </footer>
+    <script src="snake.js"></script>
+    <script src="../../scripts/shared-game.js"></script>
+    
+</body>
+</html>
