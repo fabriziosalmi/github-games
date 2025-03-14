@@ -439,6 +439,7 @@ footer a {
 .game-icon {
   width: 128px;
   height: 128px;
+  padding-left: 25%;
 }
 
 .game-card {
@@ -447,4 +448,20 @@ footer a {
   padding: 0.5rem;
   transition: transform 0.2s, box-shadow 0.2s;
   border: 5px dotted #fff;
+}
+
+.game-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  color: var(--accent);
+  padding-left: 9%;
+  font-size: x-large;
+}
+
+.game-card p {
+  margin: -3px;
+  font-size: small;
+  color: var(--primary-text);
+  padding-left: 10%;
+  padding-right: 5%;
 }
