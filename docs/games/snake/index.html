@@ -12,12 +12,26 @@
         <a href="../../index.html">⬅ Back to Game Hub</a>
     </header>
     <main>
-        <canvas id="gameCanvas"></canvas>
-        <div class="game-instructions">
-            <p>Use arrow keys to control the snake!</p>
-            <p>Collect food to grow longer, but don't hit the walls or yourself!</p>
+      <div class="game-layout">
+        <div class="game-sidebar" id="sidebar">
+          <button class="collapse-btn" onclick="toggleSidebar()">☰</button>
+          <div class="instructions">
+            <p>Use arrow keys to control the snake.</p>
+            <p>Collect food to grow longer.</p>
+            <p>Avoid collisions with walls or yourself!</p>
+          </div>
         </div>
+        <div class="game-content">
+          <canvas id="gameCanvas"></canvas>
+        </div>
+      </div>
     </main>
     <script src="snake.js"></script>
+    <script>
+      function toggleSidebar(){
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('collapsed');
+      }
+    </script>
 </body>
 </html>

@@ -12,11 +12,25 @@
         <a href="../../index.html">⬅ Back to Game Hub</a>
     </header>
     <main>
-        <canvas id="gameCanvas"></canvas>
-        <div class="game-instructions">
+      <div class="game-layout">
+        <div class="game-sidebar" id="sidebar">
+          <button class="collapse-btn" onclick="toggleSidebar()">☰</button>
+          <div class="instructions">
             <p>Watch the ball bounce around!</p>
+            <p>The ball uses realistic physics with gravity and damping.</p>
+          </div>
         </div>
+        <div class="game-content">
+          <canvas id="gameCanvas"></canvas>
+        </div>
+      </div>
     </main>
     <script src="bouncingball.js"></script>
+    <script>
+      function toggleSidebar(){
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('collapsed');
+      }
+    </script>
 </body>
 </html>

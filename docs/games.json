@@ -1,0 +1,40 @@
+{
+  "games": [
+    {
+      "id": "Snake",
+      "name": "snake",
+      "description": "A classic strategy game",
+      "folder": "snake",
+      "icon": "snake.png",
+      "game": "snake.js",
+      "url": "https://fabriziosalmi.github.io/github-games/games/snake/index.html"
+    },
+    {
+      "id": "Bouncing Ball",
+      "name": "bouncingball",
+      "description": "A fun board game",
+        "folder": "bouncingball",
+        "icon": "bouncingball.png",
+        "game": "bouncingball.js",
+        "url": "https://fabriziosalmi.github.io/github-games/games/bouncingball/index.html"
+    },
+        {
+        "id": "Chess",
+        "name": "chess",
+        "description": "A classic strategy game",
+        "folder": "chess",
+        "icon": "chess.png",
+        "game": "chess.js",
+        "url": "https://fabriziosalmi.github.io/github-games/games/chess/index.html"
+        },
+        {
+        "id": "Space Invaders",
+        "name": "spaceinvaders",
+        "description": "A fun board game",
+        "folder": "spaceinvaders",
+        "icon": "spaceinvaders.png",
+        "game": "spaceinvaders.js",
+        "url": "https://fabriziosalmi.github.io/github-games/games/spaceinvaders/index.html"
+        }
+  ]
+}

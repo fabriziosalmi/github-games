@@ -5,19 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Hub</title>
     <link rel="stylesheet" href="shared.css">
-    <!-- Added Vue.js CDN -->
+    <!-- Added Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Extended" rel="stylesheet">
+
     <script src="https://unpkg.com/vue@3"></script>
 </head>
 <body>
     <div id="app">
-        <header>
-            <h1>{{ headerTitle }}</h1>s
-        </header>
+         <header>
+             <!-- Google Play logo and search bar placeholder -->
+                <div class="search-bar">
+                    <input type="search" placeholder="Search games" aria-label="Search Games">
+                    <button aria-label="Search"><i class="material-icons-extended">search</i></button>
+                </div>
+
+         </header>
         <main>
+
             <h2>{{ gamesTitle }}</h2>
             <div class="game-grid">
                 <div v-for="game in games" :key="game.id" class="game-card">
                     <a :href="game.url">
+                       <img :src="game.icon" :alt="'Icon for ' + game.title" class="game-icon">
                         <h3>{{ game.title }}</h3>
                         <p>{{ game.description }}</p>
                     </a>
@@ -25,45 +35,35 @@
             </div>
         </main>
         <footer>
-            <p>© 2025 Game Hub | Hosted on GitHub Pages</p>
+            <p>Hosted on GitHub Pages - <a href="https://github.com/fabriziosalmi/github-games">Source code - Icons by <a href="https://www.flaticon.com">FlatIcons</a></p>
+            <!-- github logo placeholder -->    
         </footer>
     </div>
-    <!-- Vue initialization -->
+
     <script>
-        const app = Vue.createApp({
-            data() {
-                return {
-                    headerTitle: "Welcome to Game Hub",
-                    gamesTitle: "Available Games",
-                    games: [
-                        {
-                            id: 1,
-                            title: "Snake",
-                            description: "Classic snake game - eat food and grow longer!",
-                            url: "games/snake/index.html"
-                        },
-                        {
-                            id: 2,
-                            title: "Bouncing Ball",
-                            description: "Watch and control the bouncing ball physics!",
-                            url: "games/bouncingball/index.html"
-                        },
-                        {
-                            id: 3,
-                            title: "Chess",
-                            description: "Classic chess game - challenge yourself in this strategic board game!",
-                            url: "games/chess/index.html"
-                        },
-                        {
-                            id: 4,
-                            title: "Space Invaders",
-                            description: "Classic space invaders game - challenge yourself in this cosmic game!",
-                            url: "games/spaceinvaders/index.html"
-                        }
-                    ]
-                }
-            }
-        });
+      const app = Vue.createApp({
+    data() {
+        return {
+            headerTitle: "", //Removed Title so that only the logo appears
+            games: [] // Empty array to be populated from games.json
+        }
+    },
+    mounted() {
+        fetch('games.json')
+            .then(response => response.json())
+            .then(data => {
+                // Transform JSON games into expected format
+                this.games = data.games.map(game => ({
+                    id: game.id,
+                    title: game.id, // Using id as title
+                    description: game.description,
+                    url: game.url,
+                    icon: `games/${game.folder}/${game.icon}`
+                }));
+            })
+            .catch(error => console.error("Error loading games:", error));
+    }
+});
         app.mount('#app');
     </script>
 </body>

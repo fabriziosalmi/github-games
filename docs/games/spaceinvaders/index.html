@@ -4,7 +4,7 @@
 	<!-- ...existing head elements... -->
 	<meta charset="UTF-8">
 	<title>Space Invaders</title>
-	<link rel="stylesheet" href="../docs/shared.css">
+	<link rel="stylesheet" href="../../shared.css">
 	<style>
 		/* Optional inline styling for canvas */
 		canvas { background: var(--game-bg); }
@@ -13,13 +13,31 @@
 <body>
 	<header>
 		<h1>Space Invaders</h1>
+		<a href="../../index.html">⬅ Back to Game Hub</a>
 	</header>
 	<main>
-		<canvas id="gameCanvas" width="800" height="600"></canvas>
+    <div class="game-layout">
+      <div class="game-sidebar" id="sidebar">
+        <button class="collapse-btn" onclick="toggleSidebar()">☰</button>
+        <div class="instructions">
+          <p>Use arrow keys to move left and right.</p>
+          <p>Press spacebar to shoot.</p>
+        </div>
+      </div>
+      <div class="game-content">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+      </div>
+    </div>
 	</main>
 	<footer>
 		<p>&copy; 2023 Space Invaders</p>
 	</footer>
 	<script src="spaceinvaders.js"></script>
+	<script>
+	  function toggleSidebar(){
+	    const sidebar = document.getElementById('sidebar');
+	    sidebar.classList.toggle('collapsed');
+	  }
+	</script>
 </body>
 </html>

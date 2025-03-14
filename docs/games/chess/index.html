@@ -12,14 +12,27 @@
         <a href="../../index.html">⬅ Back to Game Hub</a>
     </header>
     <main>
-        <canvas id="gameCanvas"></canvas>
-        <div id="gameStatus" class="game-status">White's turn</div>
-        <div class="game-instructions">
-            <p>Click on a piece to select it, then click on a valid square to move!</p>
-            <p>White moves first. Capture all pieces and checkmate the opponent's king to win!</p>
-            <p>A piece is highlighted in green when selected. Invalid moves will be ignored.</p>
+        <div class="game-layout">
+            <div class="game-sidebar" id="sidebar">
+                <button class="collapse-btn" onclick="toggleSidebar()">☰</button>
+                <div class="instructions">
+                    <p>Click on a piece to select it, then click on a valid square to move.</p>
+                    <p>White moves first. Avoid putting yourself in check.</p>
+                    <p>Capture pieces and checkmate the opponent's king to win!</p>
+                </div>
+            </div>
+            <div class="game-content">
+                <canvas id="gameCanvas"></canvas>
+                <div id="gameStatus" class="game-status">White's turn</div>
+            </div>
         </div>
     </main>
     <script src="chess.js"></script>
+    <script>
+        function toggleSidebar(){
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('collapsed');
+        }
+    </script>
 </body>
 </html>
