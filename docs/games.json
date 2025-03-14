@@ -57,7 +57,7 @@
     {
       "id": "xx142-b2.exe",
       "name": "xx142-b2",
-      "description": "A fun board game",
+      "description": "Source code: https://js13kgames.com/games/xx142-b2exe",
       "folder": "xx142-b2",
       "icon": "xx142-b2.png",
       "game": "index.html",
