@@ -53,6 +53,18 @@
         "Use arrow keys to move left and right",
         "Press spacebar to shoot"
       ]
+    },
+    {
+      "id": "xx142-b2.exe",
+      "name": "xx142-b2",
+      "description": "A fun board game",
+      "folder": "xx142-b2",
+      "icon": "xx142-b2.png",
+      "game": "index.html",
+      "url": "https://fabriziosalmi.github.io/github-games/games/xx142-b2/index.html",
+      "instructions": [
+        "Use arrow keys to move"
+      ]
     }
   ]
 }
