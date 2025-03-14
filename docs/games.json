@@ -3,7 +3,7 @@
     {
       "id": "Snake",
       "name": "snake",
-      "description": "A classic strategy game",
+      "description": "A classic game created by AI",
       "folder": "snake",
       "icon": "snake.png",
       "game": "snake.js",
@@ -17,7 +17,7 @@
     {
       "id": "Bouncing Ball",
       "name": "bouncingball",
-      "description": "A fun board game",
+      "description": "A fun game created by AI",
       "folder": "bouncingball",
       "icon": "bouncingball.png",
       "game": "bouncingball.js",
@@ -30,7 +30,7 @@
     {
       "id": "Chess",
       "name": "chess",
-      "description": "A classic strategy game",
+      "description": "A classic strategy game created by AI",
       "folder": "chess",
       "icon": "chess.png",
       "game": "chess.js",
@@ -44,7 +44,7 @@
     {
       "id": "Space Invaders",
       "name": "spaceinvaders",
-      "description": "A fun board game",
+      "description": "A fun retro classic  created by AI",
       "folder": "spaceinvaders",
       "icon": "spaceinvaders.png",
       "game": "spaceinvaders.js",
@@ -57,7 +57,7 @@
     {
       "id": "xx142-b2.exe",
       "name": "xx142-b2",
-      "description": "Source code: https://js13kgames.com/games/xx142-b2exe",
+      "description": "An awesome piece of software created by humans. Source code: https://js13kgames.com/games/xx142-b2exe",
       "folder": "xx142-b2",
       "icon": "xx142-b2.png",
       "game": "index.html",
